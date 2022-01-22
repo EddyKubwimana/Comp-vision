@@ -1,5 +1,12 @@
 # Comp-vision
 Computer-vision project
+
+
+
+
+
+
+
 import cvzone
 from cvzone.HandTrackingModule import HandDetector
 import numpy
