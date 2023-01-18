@@ -1,42 +1,13 @@
-# Comp-vision
-Computer-vision project
+OpenCV in Python provides a wide range of functionalities and utilities for image and video processing. In this repostitory, I tried to learn about some functionalities such as :
 
+Image Input/Output: OpenCV provides functions to read and write images in various formats such as BMP, JPG, PNG, and TIFF.
 
+Image Manipulation: OpenCV provides functions to perform basic image manipulation operations such as cropping, resizing, and rotation.
 
+Image Processing: OpenCV provides functions to perform image processing operations such as thresholding, edge detection, and color space conversion.
 
+Object Detection: OpenCV provides functions to perform object detection using techniques such as Haar cascades, HOG, and YOLO.
 
+Feature Detection and Description: OpenCV provides functions to detect and describe features in an image such as SIFT, SURF, and ORB.
 
-
-import cvzone
-from cvzone.HandTrackingModule import HandDetector
-import numpy
-import cv2
-cap=cv2.VideoCapture(0)
-cap.set(3,1280)
-cap.set(4,780)
-detector=HandDetector(detectionCon=0.8,maxHands=2)
-color = (0, 255, 0)
-x = 100
-y = 200
-w = 300
-h = 400
-while True:
-
-    success,img=cap.read()
-    cv2.rectangle(img,(x,y),(w,h),color,cv2.FILLED)
-    Hands,img= detector.findHands(img)
-    if Hands:
-        Hands1=Hands[0]
-        lmlist=Hands1['lmList']
-        cursor=lmlist[8]
-        lenght,info,img=detector.findDistance(lmlist[8],lmlist[12],img)
-        if x<cursor[0]<w and y<cursor[1]<h and lenght<30:
-                color = (0, 255, 255)
-                x=cursor[0]/2
-                y=cursor[1]/2
-                w=x+200
-                h=y+200
-
-
-    cv2.imshow("image",img)
-    cv2.waitKey(1)
+Video Input/Output: OpenCV provides functions to read and write video files in various formats such as AVI, MP4, and MKV.
